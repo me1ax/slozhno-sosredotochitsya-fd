@@ -408,15 +408,19 @@
   .img-1 {
     grid-area: img1; 
   }
+
   .img-2 {
     grid-area: img2; 
   }
+
   .img-3 {
     grid-area: img3; 
   }
+
   .img-4 {
     grid-area: img4; 
   }
+
   .img-5 {
     grid-area: img5; 
   }
@@ -463,13 +467,16 @@
 }
 
 @media (min-width:1024px) {
+  
   .main {
     margin-top: 30px;
   }
+
   .header::after {
     margin-top: 18px;
     margin-right: 20px;
   }
+
   .header::before {
     margin-bottom: 20px;
     margin-left: 20px;
