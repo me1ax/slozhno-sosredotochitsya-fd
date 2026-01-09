@@ -21,7 +21,7 @@
 @media (prefers-color-scheme: light) {
   :root {
     --bg-image:url(../images/cover-image-light.png);
-    --bg-body-color: rgba(0, 0, 40, 1);
+    --bg-body-color: rgba(255, 241, 247, 1);
     --color-text-switch-theme: rgba(53, 52, 48, 1);
     --color-text-no-focus: rgba(255, 194, 230, 1);
     --color-text-question: rgba(53, 52, 48, 1);
