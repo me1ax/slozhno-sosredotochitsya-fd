@@ -16,6 +16,7 @@
   --color-text-shadow: rgba(255, 141, 203, 1);
   --color-rec-shadow: rgba(53, 52, 48, 1);
   --color-rec: transparent;
+  --border-hover: rgba(53, 52, 48, 1);
 }
 
 @media (prefers-color-scheme: light) {

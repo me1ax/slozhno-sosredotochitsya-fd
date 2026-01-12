@@ -10,21 +10,19 @@
   background-color: var(--bg-body-color);
 }
 
-
-.rec {
+.header__text-decoration {
   display: flex;
   color: var(--color-rec);
-  width: 52px;
-  height: 26px;
   align-items: center;
-  margin: 10px 19px 0 0;
+  margin-block-start: 10px;
+  margin-inline-end: 19px;
   justify-self: end;
 }
 
-.textRec::after {
+.decoration-text::after {
   content: "";
   display: inline-block;
-  margin-left: 10px;
+  margin-inline-start: 10px;
   width: 9px;
   height: 9px;
   border-radius: 50%;
@@ -34,14 +32,17 @@
 
 .header {
   display: grid;
+  grid-template-rows: 1fr max-content 1fr;
   height: 100vh;
-  min-height: 375px;
+  inline-size: 100%;
+  min-height: 668px;
   position: relative;
   align-content: start;
+  align-items: start;
 }
 
-.header::before,
-.header::after {
+.decorated-zone::before,
+.decorated-zone::after {
   content:"";
   position:absolute;
   border:1px solid var(--color-text-switch-theme);
@@ -49,59 +50,63 @@
   height: 25px;
 }
 
-.header::after {
+.decorated-zone::after {
   right:0;
   top:0;
   border-left: none;
   border-bottom: none;
-  margin: 10px 10px 0 0;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
-.header::before {
+.decorated-zone::before {
   left: 0;
   bottom: 0;
   border-right: none;
   border-top: none;
-  margin: 0 0 10px 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
 }
 
-.textRec {
+.decoration-text {
   display: flex;
   align-items: center;
+  justify-self: right;
+  margin-block-start: 10px;
+  margin-inline-end: 20px;
   color:var(--color-rec);
   font-size: 18px;
   line-height: 25px;
   letter-spacing: 0;
-  font-family: 'IBM Plex mono', sans-serif;
+  font-family: 'IBM Plex mono', monospace;
   text-transform: uppercase;
 }
 
-.noFocus {
+.header__title {
   color: var(--color-text-no-focus);
   font-weight: 700;
   line-height: 0.83;
   letter-spacing: 0;
-  font-family: 'IBM Plex mono', sans-serif;
+  font-family: 'IBM Plex mono', monospace;
   text-shadow: 4px 4px 0px var(--color-text-shadow);
-  margin-top: 65px;
   justify-self: center;
-  word-spacing: 3em;
 }
 
-.textNo,
-.textFocus {
+.header__text-title {
+  font-size:clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+}
+
+.title-block {
   display: block;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
 }
 
 .header__theme-menu {
   display: flex;
-  align-items: center;
+  flex-flow: column;
+  align-items: start;
   justify-self: end;
-  width: 70px;
-  height: 98px;
-  margin-top: 39px;
-  margin-right: 6px;
+  margin-inline-end: 3px;
 }
 
 .header__theme-menu-list {
@@ -110,10 +115,11 @@
   color:var(--color-text-switch-theme);
   gap:15px;
   justify-self: end;
+  margin-block-start: 40px;
 }
 
 .header__theme-menu-button {
-  font-family: 'IBM Plex mono', sans-serif;
+  font-family: 'IBM Plex mono', monospace;
   font-weight: 400;
   font-size: 18px;
   line-height: 18px;
@@ -131,29 +137,36 @@
 .header__theme-menu-button_active {
   pointer-events: none;
   outline: 1px solid var(--color-text-switch-theme);
-  padding: 1.5px 13px;
+  padding-block: 1.5px;
+  padding-inline: 13px;
 }
 
 .header__theme-menu-button:focus-visible {
   outline: transparent;
-  border-bottom: 1px solid var(--color-text-switch-theme);
+  border-block-end: 1px solid var(--color-text-switch-theme);
 }
 
-.blcokThree {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-.thesis {
-  width: 355px;
-  font-family: 'IBM Plex mono', sans-serif;
-  font-weight: 700;
-  background-color: var(--bg-title-text);
-  margin-top: 55px;
+.block-grid {
+  margin-block: 50px;
+  max-width: 355px;
   justify-self: center;
 }
 
-.textThesis {
+.block-bottom {
+  margin-block-start: 20px;
+}
+
+.thesis {
+  width: 100%;
+  max-width: 355px;
+  font-family: 'IBM Plex mono', monospace;
+  font-weight: 700;
+  background-color: var(--bg-title-text);
+  justify-self: center;
+  align-self: center;
+}
+
+.text-thesis {
   display: block;
   line-height: 23.4px;
   letter-spacing: 0;
@@ -163,11 +176,11 @@
 
 .main {
   display: grid;
-  margin-top: 40px;
+  margin-block-start: 40px;
 }
 
 .question {
-  font-family: 'IBM Plex mono', sans-serif;
+  font-family: 'IBM Plex mono', monospace;
   font-weight: 700;
   font-size: 18px;
   line-height: 23.4px;
@@ -178,49 +191,63 @@
 }
 
 .block {
-  margin-top: 20px;
+  margin-block-start: 20px;
   justify-self:center;
   width: 355px;
 }
 
-.titleMain {
-  font-family: 'IBM Plex mono', sans-serif;
+.title-main {
+  font-family: 'IBM Plex mono', monospace;
   font-size: 18px;
   line-height: 23.4px;
   color: var(--color-text-title);
   background-color: var(--bg-title-text);
 }
 
-.textMain {
-  font-family: 'IBM Plex mono', sans-serif;
+.text-main {
+  font-family: 'IBM Plex mono', monospace;
   font-weight: 400;
   letter-spacing: 0;
   line-height: 23.4px;
   font-size: 18px;
   color: var(--color-text-main);
-  margin-top: 10px;
+  margin-block-start: 10px;
 }
 
-.wordWithShadow {
-  text-shadow: 2px 1px 0px rgba(255, 0, 112, 1);
+.word-with-shadow {
+  text-shadow: 2px 1px 0px var(--color-text-shadow);
   text-decoration: none;
 }
 
+.word-with-shadow:hover {
+  outline: transparent;
+  border-block-end: 1px solid var(--border-hover);
+}
+
+.word-with-shadow:focus {
+  outline: none;
+}
+
+.word-with-shadow:focus-visible {
+  border: 1px solid var(--border-hover);
+  padding: 3px;
+}
+
 .dophamin {
-  margin-top: 20px;
+  margin-block-start: 20px;
 }
 
-.blockWithPicture {
-  margin-top: 30px;
+.block-with-picture {
+  margin-block-start: 30px;
 }
 
-.blockPicture {
+.block-picture {
   display: grid;
   gap:10px;
 }
 
-.thesisTwo {
-  margin: 20px 0;
+.thesis-bottom {
+  margin-block: 20px;
 }
 
 .concentration {
@@ -239,201 +266,188 @@
   height: 100vh;
   min-height: 668px;
   position: relative;
-  margin-top: 40px;
+  margin-block-start: 40px;
 }
 
-.footer::before,
-.footer::after {
-  content:"";
-  position:absolute;
-  border:1px solid var(--color-text-switch-theme);
-  width: 25.04px;
-  height: 25px;
-}
-
-.footer::after {
-  right:0;
-  top:0;
-  border-left: none;
-  border-bottom: none;
-  margin: 10px 10px 0 0;
-}
-
-.footer::before {
-  left: 0;
-  bottom: 0;
-  border-right: none;
-  border-top: none;
-  margin: 0 0 10px 10px;
-}
-
-.focus {
+.footer_titile {
   color: var(--color-text-no-focus);
   font-weight: 700;
   line-height: 0.83;
   letter-spacing: 0;
-  font-family: 'IBM Plex mono', sans-serif;
+  font-family: 'IBM Plex mono', monospace;
   text-shadow: 4px 4px 0px var(--color-text-shadow);
   justify-self: center;
 }
 
 @media (min-width:768px) {
   .header {
-    min-height: 768px;
+    min-height: 1024px;
   }
 
-  .header::after {
+  .header__theme-menu-list {
+    margin-block-start: 150px;
+  }
+
+  .decorated-zone::after {
     margin-top: 20px;
     margin-right: 20px;
   }
 
-  .header::before {
+  .decorated-zone::before {
     margin-bottom: 20px;
     margin-left: 20px;
   }
 
-  .rec {
-    margin-right: 30px;
-    margin-top: 20px;
+  .header__text-decoration {
+    margin-inline-end: 30px;
+    margin-block-start: 20px;
   }
 
   .header__theme-menu {
-    margin-top: 145px;
-    margin-right: 16px;
+    margin-block-start: 10px;
+    margin-inline-end: 10px;
   }
   
-  .firstblock,
-  .lastblock {
-    margin-left: 20px;
+  .top-block,
+  .bottom-block {
+    margin-inline-start: 20px;
+  }
+
+  .top-block {
+    margin: 0;
   }
 
   .dophamin {
-    margin-bottom: 20px;
+    margin-block-end: 20px;
   }
 
   .gadgets {
-    margin-bottom: 40px;
+    margin-block-end: 40px;
   }
   
-  .noFocus {
+  .header__title {
     align-self: center;
     justify-self: start;
-    margin-top: 175px;
+    grid-area: 2;
   }
 
-  .thesisHeader {
+  .thesis-header {
+    margin-block-start: -20px;
     justify-self: end;
-    margin-top:165px;
   }
 
-  .textNoFocs {
-    width: 576.84px;
+  .header__text-title {
+    width: 100%;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
-  .firstSection {
-    width: 728px;
+  .top-section {
+    max-width: 728px;
     justify-self: center;
-    margin-top: 15px;
+    margin-block-start: 20px;
   }
 
-  .textNo,
-  .textFocus {
+  .title-block {
     display: inline;
   }
 
   .block {
-    width: 472px;
+    width: 100%;
+    min-width: 472px;
     justify-self: start;
     grid-column: 2/3;
   }
 
-  .question {
-    justify-self: start;
-    width: 236px;
+  .bottom-block {
+    max-width: 472px;
   }
 
-  .blockWithTextGrid {
+  .question {
+    justify-self: start;
+    max-width: 236px;
+  }
+
+  .block-with-text-grid {
     display: grid;
     grid-template-columns: min-content 1fr;
     justify-content: end;
   }
 
-  .blcokThree {
-    margin-top: 60px;
+  .block-grid {
+    margin-block-start: 60px;
+    margin-block-end: 80px;
   }
 
-  .textMultitasking,
-  .textDophamin,
-  .titleDophamin,
-  .titleMultitasking {
-    width: 472px;
+  .main__text-top,
+  .main__title-top {
+    max-width: 472px;
     align-self: start;
   }
 
-  .multitasking {
-    margin-top: 0;
+  .top-block:not(:first-of-type) {
+    margin-block-start: 20px;
   }
 
-  .blockWithText {
-    width: 728px;
+  .block-bottom {
+    margin-block-start: 0px;
+  }
+
+  .block-with-text {
+    max-width: 728px;
     justify-self: center;
   }
 
-  .textNoGridMain {
-    width: 728px;
+  .text-no-grid-main {
+    max-width: 728px;
   }
 
-  .titleNoGridMain {
-    width: 728px;
+  .title-no-grid-main {
+    max-width: 728px;
   }
 
   .marginmult {
-    margin-top: 20px;
+    margin-block-start: 20px;
   }
 
   .thesis {
-    width:364px;
-    margin-right: 20px;
+    min-width:364px;
+    margin-inline-end: 20px;
   }
 
-  .thesisTwo {
-    width: 472px;
-    margin: 0px;
-    margin-bottom: 20px;
+  .thesis-bottom {
+    max-width: 472px;
+    margin-block-start: 0px;
+    margin-block-end: 20px;
   }
 
   .fiveRules {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 
   .titlePicture {
-    width: 728px;
+    max-width: 728px;
     grid-area: title;
   }
 
   .img-1 {
     grid-area: img1;
   }
-
   .img-2 {
     grid-area: img2;
   }
-
   .img-3 {
     grid-area: img3;
   }
-
   .img-4 {
     grid-area: img4;
   }
-
   .img-5 {
     grid-area: img5;
   }
 
-  .blockPicture {
-    margin-top: 45px;
-    width: 728px;
+  .block-picture {
+    margin-block-start: 45px;
+    max-width: 728px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap:20px;
@@ -449,185 +463,169 @@
     object-fit: cover;
   }
 
-  .blockWithPicture {
+  .block-with-picture {
     justify-self: center;
   }
 
   .footer {
-    margin-top: 60px;
-  }
-
-  .footer::after {
-    margin-top: 20px;
-    margin-right: 20px;
-  }
-
-  .footer::before {
-    margin-bottom: 20px;
-    margin-left: 20px;
+    margin-block-start: 60px;
   }
 }
 
 @media (min-width:1024px) {
 
   .main {
-    margin-top: 30px;
+    margin-block-start: 30px;
   }
 
-  .header::after {
+  .decorated-zone::after {
     margin-top: 18px;
     margin-right: 20px;
   }
 
-  .header::before {
+  .decorated-zone::before {
     margin-bottom: 20px;
     margin-left: 20px;
   }
 
-  .rec {
-    margin-right: 30px;
-    margin-top: 20px;
+  .header__text-decoration {
+    margin-inline-end: 30px;
+    margin-block-start: 20px;
     grid-row: 1;
-    grid-column: 2;
   }
 
   .header {
-    grid-template-rows: auto auto 1fr auto;
-    grid-template-columns: 1fr 1fr;
     min-height: 768px;
   }
   
   .header__theme-menu {
-    grid-row: 1;
-    grid-column: 1/3;
-    justify-self: center;
-    margin: 20px 0 0 20px;
-    width: 230px;
+    flex-flow: row-reverse;
+    justify-content: flex-end;
+    align-items: flex-start;
   }
 
   .header__theme-menu-list {
     gap:20px;
     flex-flow: row;
-    align-self: start;
+    align-self: center;
+    justify-content: flex-end;
+    margin-block-start: 0;
+    margin-block-start: 10px;
+    margin-inline-end: 320px;
   }
 
   .thesis {
-    width: 491px;
-    align-self: start;
-    grid-row: 3;
-    grid-column: 1 / 3;
+    min-width: 491px;
+    align-self: center;
     justify-self: right;
-    margin-top: 115px;
-    margin-right:20px;
+    margin-inline-end:20px;
   }
 
-  .textNoFocs {
+  .header__text-title {
     grid-row: 1/3;
-    width: 759px;
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    min-width: 759px;
   }
 
-  .textMultitasking,
-  .textDophamin,
-  .titleDophamin,
-  .titleMultitasking {
-    width: 649px;
+  .main__text-top,
+  .main__title-top {
+    max-width: 649px;
     align-self: start;
   }
 
-  .blockWithTextGrid {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    width: 984px;
+  .block-with-text-grid {
+    margin-block-start: 20px;
+    margin-block-end: 10px;
+    max-width: 984px;
     justify-self: center;
   }
 
-  .textMain {
-    width: 649px;
+  .text-main {
+    max-width: 649px;
   }
 
   .question {
-    width: 314px;
+    max-width: 314px;
   }
 
   .block {
-    width: 649px;
+    max-width: 649px;
     justify-self: center;
   }
 
-  .firstSection {
-    margin-top: 30px;
+  .top-section {
+    margin-block-start: 30px;
   }
 
-  .blcokThree {
-    width: 984px;
+  .block-bottom {
+    max-width: 314px;
+  }
+
+  .block-grid {
+    max-width: 984px;
     margin:0 auto;
+    margin-block-end: 30px;
   }
 
-  .blockWithText {
-    margin-top: 47px;
+  .block-with-text {
+    margin-block-start: 47px;
   }
 
-  .blcokThree-articles {
+  .block-articles {
     display: flex;
+    max-width: 984px;
+    flex-wrap: wrap;
     gap: 20px;
   }
 
-  .textNoGridMain {
-    width: 315px;
+  .text-no-grid-main {
+    max-width: 315px;
   }
 
-  .titleNoGridMain {
-    width: 315px;
+  .title-no-grid-main {
+    max-width: 315px;
   }
 
-  .lastblock {
+  .bottom-block {
     align-self: start;
   }
   
-  .thesisTwo {
-    margin-top: 0;
-    margin-right: 0;
-    width: 649px;
+  .thesis-bottom {
+    margin-block-start: 0;
+    margin-inline-end: 0;
+    min-width: 649px;
   }
 
-  .blockPicture {
-    width: 984px;
+  .block-picture {
+    max-width: 984px;
     gap:20px;
   }
 
   .titlePicture {
-    width: 984px;
+    max-width: 984px;
   }
 
-  .blockWithPicture {
-    margin-top: 20px;
+  .block-with-picture {
+    margin-block-start: 20px;
   }
 
   .img {
     margin: 0;
   }
 
-  .footer::after {
-    margin-top: 30px;
-    margin-right: 20px;
+  .footer_titile {
+    margin-block-start: 10px;
   }
 
-  .footer::before {
-    margin-left: 20px;
-  }
-
-  .focus {
-    margin-top: 10px;
-  }
-
-  .textNo,
-  .textFocus {
+  .title-block {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
-  .noFocus {
-    margin-top: 200px;
+  .header__title {
     word-spacing: 0;
+    grid-area: 2;
+    grid-column: 1; 
+  }
+
+  .decoration-text {
   }
 }
